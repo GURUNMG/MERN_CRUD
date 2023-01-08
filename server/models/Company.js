@@ -14,7 +14,7 @@ const companySchema=new mongoose.Schema({
     type:Number
   }
 })
-
-const company =mongoose.model('data',companySchema) 
+const collection_name="data"
+const company =mongoose.model(collection_name,companySchema) 
 
 module.exports =company;

@@ -27,3 +27,10 @@ app.post("/insert",async(req,res)=>{
   }
   res.send("stored")
 })
+
+app.get("/read",(req,res)=>{
+  companyModel.find({},"name role offers",(err,data)=>{
+    if(err) res.send("ERROR")
+    res.send(data)
+  })
+})
