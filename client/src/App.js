@@ -17,6 +17,10 @@ function App() {
     // console.log(company)
     Axios.post("http://localhost:3001/insert",{company:company, role:role,offer:offer})
   }
+  const deleteCompany=(id)=>{
+    // console.log(id)
+    Axios.delete('http://localhost:3001/remove/'+id)
+  }
   return (
     <div className="App">
 
@@ -57,7 +61,13 @@ function App() {
       {
         companyList.map((items)=>{
           return <div>
-            <div class="rounded-lg border-2 border-red-600 inline-block mt-4">{items.name} {items.role} {items.offers} </div>
+            <div class="rounded-lg border-2 border-red-600 inline-block mt-4">
+              <h1>COMPANY NAME: {items.name} </h1>
+              <h1>ROLE: {items.role} </h1>
+              <h1>NUMBER OF OFFERS: {items.offers}</h1>
+              <button class="rounded-lg border-2 border-green-500" type="submit" 
+              onClick={()=>deleteCompany(items._id)}>DELETE</button>
+            </div>
           </div>
         })
       }

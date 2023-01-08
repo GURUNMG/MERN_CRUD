@@ -34,3 +34,11 @@ app.get("/read",(req,res)=>{
     res.send(data)
   })
 })
+
+app.delete("/remove/:id",async(req,res)=>{
+  const id=req.params.id
+
+  // await companyModel.findByIdAndRemove(id)
+  await companyModel.findByIdAndRemove(id).exec()
+  res.send("deleted")
+})
